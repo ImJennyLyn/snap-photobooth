@@ -9,24 +9,20 @@ const frames = [
 ];
 
 const App = () => {
-  const webcamRef = useRef(null);
+  const webcamRefs = [useRef(null), useRef(null), useRef(null)];
   const canvasRef = useRef(null);
-  const [capturedImages, setCapturedImages] = useState([]);
+  const [capturedImages, setCapturedImages] = useState([null, null, null]);
   const [selectedFrame, setSelectedFrame] = useState(frames[0]);
   const [showPreview, setShowPreview] = useState(false);
 
   const capture = () => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    if (capturedImages.length < 2) {
-      setCapturedImages([...capturedImages, imageSrc]);
-    } else {
-      setCapturedImages([...capturedImages, imageSrc]);
-      setShowPreview(true);
-    }
+    const newImages = webcamRefs.map(ref => ref.current.getScreenshot());
+    setCapturedImages(newImages);
+    setShowPreview(true);
   };
 
   const retake = () => {
-    setCapturedImages([]);
+    setCapturedImages([null, null, null]);
     setShowPreview(false);
   };
 
@@ -65,50 +61,31 @@ const App = () => {
     <div className="p-4 text-center">
       <h1 className="text-2xl font-bold mb-4">React Photo Booth 📸</h1>
 
-      {!showPreview ? (
-        <div className="flex flex-col items-center gap-2">
-          {[0, 1, 2].map((_, i) => (
-            <div key={i} className="relative w-[300px] h-[400px]">
-              {capturedImages[i] ? (
-                <img
-                  src={capturedImages[i]}
-                  alt={`Captured ${i + 1}`}
-                  className="w-full h-full object-cover rounded border border-gray-300"
-                />
-              ) : i === capturedImages.length && (
-                <Webcam
-                  audio={false}
-                  ref={webcamRef}
-                  screenshotFormat="image/jpeg"
-                  className="w-full h-full object-cover rounded border border-gray-300"
-                />
-              )}
-              <img
-                src={selectedFrame}
-                alt="frame"
-                className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
+      <div className="grid grid-cols-1 gap-4 w-[300px] mx-auto">
+        {[0, 1, 2].map((i) => (
+          <div key={i} className="relative w-full h-[400px]">
+            {!showPreview ? (
+              <Webcam
+                audio={false}
+                ref={webcamRefs[i]}
+                screenshotFormat="image/jpeg"
+                className="w-full h-full object-cover rounded border border-gray-300"
               />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="relative w-[300px]">
-          {capturedImages.map((img, idx) => (
+            ) : (
+              <img
+                src={capturedImages[i]}
+                alt={`Captured ${i + 1}`}
+                className="w-full h-full object-cover rounded border border-gray-300"
+              />
+            )}
             <img
-              key={idx}
-              src={img}
-              alt={`Preview ${idx + 1}`}
-              className="w-full object-cover border border-gray-300 mb-2 rounded"
+              src={selectedFrame}
+              alt="frame"
+              className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
             />
-          ))}
-          <img
-            src={selectedFrame}
-            alt="frame"
-            className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
-            style={{ height: `${300 * 3}px` }}
-          />
-        </div>
-      )}
+          </div>
+        ))}
+      </div>
 
       <div className="my-4 flex justify-center gap-2">
         {frames.map((frame, idx) => (
