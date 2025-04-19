@@ -47,19 +47,23 @@ const App = () => {
         </div>
 
         {/* Right: Captured Images */}
-        <div className="images-section">
-          {[0, 1, 2].map((idx) => (
-            <div key={idx} className="image-preview">
-              {capturedImages[idx] && (
-                <img
-                  src={capturedImages[idx]}
-                  alt={`Captured ${idx + 1}`}
-                  className="preview-img"
-                />
-              )}
-            </div>
-          ))}
-        </div>
+       {/* Right: Captured Images inside a background container */}
+<div className="image-preview-wrapper">
+  <div className="images-section">
+    {[0, 1, 2].map((idx) => (
+      <div key={idx} className="image-preview">
+        {capturedImages[idx] && (
+          <img
+            src={capturedImages[idx]}
+            alt={`Captured ${idx + 1}`}
+            className="preview-img"
+          />
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
       </div>
     </div>
   );
