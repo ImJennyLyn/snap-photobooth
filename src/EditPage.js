@@ -6,6 +6,7 @@ import './App.css';
 const EditPage = () => {
   const [images, setImages] = useState([]);
   const [bgColor, setBgColor] = useState('#ffffff');
+  const [combinedImage, setCombinedImage] = useState(null); // State to hold the combined image
   const wrapperRef = useRef(null);
 
   useEffect(() => {
@@ -17,17 +18,34 @@ const EditPage = () => {
     if (!wrapperRef.current) return;
 
     const canvas = await html2canvas(wrapperRef.current);
+    const imageData = canvas.toDataURL('image/jpeg'); // Get the base64 data URL
+
+    // Set the combined image in state
+    setCombinedImage(imageData);
+
     const link = document.createElement('a');
     link.download = 'combined-images.jpg';
-    link.href = canvas.toDataURL('image/jpeg');
+    link.href = imageData; // Use the generated base64 image data
     link.click();
   };
 
   const saveToDatabase = async () => {
-    const response = await axios.post('http://localhost/your-project/php/saveImage.php', {
-      images,
-    });
-    alert(response.data.message);
+    try {
+      // Ensure combinedImage is a base64 string and not empty
+      if (!combinedImage) {
+        alert('No image to save');
+        return;
+      }
+
+      const response = await axios.post('http://localhost/MY-PHOTOBOOTH-APP/src/saveImage.php', {
+        image: combinedImage,  // The base64 encoded image data
+        created_at: new Date().toISOString(),  // Timestamp when image was taken
+      });
+
+      alert(response.data.message);
+    } catch (error) {
+      console.error('Error saving to database:', error);
+    }
   };
 
   return (
@@ -49,10 +67,7 @@ const EditPage = () => {
       >
         {images.map((img, idx) => (
           <div key={idx} className="image-preview">
-            <img   className="preview-img"
-              src={img}
-              alt={`Edited ${idx + 1}`}
-            />
+            <img className="preview-img" src={img} alt={`Edited ${idx + 1}`} />
           </div>
         ))}
       </div>
