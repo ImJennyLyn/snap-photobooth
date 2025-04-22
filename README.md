@@ -11,7 +11,7 @@ This project was built using **React** and integrates **Webcam** for photo captu
 - Capture photos using the webcam
 - Countdown timer before each photo is captured
 - Add stickers and text to the captured photos
-- Download or save the final image to the database
+- Download the image
 - User-friendly interface with real-time photo preview
 
 ---
@@ -27,7 +27,6 @@ The **Camera Page** allows users to capture up to three photos with a countdown 
 - **Retake** button to re-take the photos
 - **Next** button to navigate to the editing page after capturing three photos
 
-### Screenshot:
 ![490986410_951219207089646_6181851924530267794_n](https://github.com/user-attachments/assets/85830da0-07f0-4f21-a5f5-72612f98543b) <!-- Replace with the actual image path -->
 
 ---
@@ -46,7 +45,6 @@ The **Edit Page** enables users to customize their captured photos by adding sti
 - **Download** the combined image as one photo
 - **Save** the edited image to the database
 
-### Screenshot:
 ![490998701_969263681956429_2813074278678452307_n](https://github.com/user-attachments/assets/cd926dcc-0fc9-48f1-8736-1c16d39ba355)
 
 ---
