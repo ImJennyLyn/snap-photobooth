@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Snap PhotoBooth
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Snap PhotoBooth is a web-based photo booth application that allows users to capture photos using their webcam, edit them by adding stickers and text, and then save or download the final images. It features a user-friendly interface, with interactive tools for customization and editing.
 
-## Available Scripts
+This project was built using **React** and integrates **Webcam** for photo capture, **html2canvas** for image manipulation, and **axios** for backend interactions. The app provides an engaging experience for creating and editing personalized photos.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Capture photos using the webcam
+- Countdown timer before each photo is captured
+- Add stickers and text to the captured photos
+- Download or save the final image to the database
+- User-friendly interface with real-time photo preview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Camera Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The **Camera Page** allows users to capture up to three photos with a countdown timer for each capture. After capturing, users can review the images and proceed to the next page for editing.
 
-### `npm run build`
+### Features on the Camera Page:
+- **Webcam integration** for live photo capture
+- **Countdown timer** before taking the photo
+- **Capture** button for photo capturing
+- **Retake** button to re-take the photos
+- **Next** button to navigate to the editing page after capturing three photos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Screenshot:
+![490986410_951219207089646_6181851924530267794_n](https://github.com/user-attachments/assets/85830da0-07f0-4f21-a5f5-72612f98543b) <!-- Replace with the actual image path -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Edit Page
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The **Edit Page** enables users to customize their captured photos by adding stickers and text. They can select a background color, place text or stickers on the image, and download or save the final result.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Features on the Edit Page:
+- **Choose a background color**
+- **Add stickers** from a predefined set of emojis
+- **Add custom text** with customizable fonts
+- **Drag and drop** text and stickers to place them on the image
+- **Delete** text or stickers in "Delete Mode"
+- **Download** the combined image as one photo
+- **Save** the edited image to the database
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Screenshot:
+![490998701_969263681956429_2813074278678452307_n](https://github.com/user-attachments/assets/cd926dcc-0fc9-48f1-8736-1c16d39ba355)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To get started with the project locally, follow these steps:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/snap-photobooth.git
