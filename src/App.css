@@ -149,9 +149,7 @@
 
 .text-overlay {
   padding: 4px 8px;
-  background: rgba(142, 104, 104, 0.8);
   border-radius: 6px;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
 }
 .edit-container {
   display: flex;
@@ -224,3 +222,14 @@ button.disabled {
   text-align: center;
 }
 
+.image-preview-edit {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 5 / 4;
+  background-color: #fef3c7;
+  border: 1px solid #9ca3af;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}

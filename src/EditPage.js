@@ -163,7 +163,7 @@ const EditPage = () => {
         onClick={handleWrapperClick}
       >
         {images.map((img, idx) => (
-          <div key={idx} className="image-preview">
+          <div key={idx} className="image-preview-edit">
             <img className="preview-img" src={img} alt={`Edited ${idx + 1}`} />
           </div>
         ))}
