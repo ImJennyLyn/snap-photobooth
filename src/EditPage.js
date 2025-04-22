@@ -84,9 +84,11 @@ const EditPage = () => {
   };
 
   return (
+    <div className="edit-page">
+
     <div className="edit-container">
     <div className="left-panel">
-      <h2>Edit Preview</h2>
+      <h2>Edit Your Photo</h2>
   
       <label>
         Background Color:
@@ -140,6 +142,12 @@ const EditPage = () => {
         <p style={{ fontSize: '12px', color: '#666' }}>Click on image to place text</p>
       </div>
   
+      <button onClick={() => setDeleteMode(!deleteMode)}>
+        {deleteMode ? 'Exit Delete Mode' : 'Delete Mode'}
+      </button>
+  
+      <button onClick={downloadAllImagesAsOne}>Download Image</button>
+      {/* <button onClick={saveToDatabase}>Save to Database</button> */}
     </div>
   
     <div className="right-panel">
@@ -214,10 +222,8 @@ const EditPage = () => {
         ))}
       </div>
     </div>
-  
+  </div>
 
-      <button onClick={downloadAllImagesAsOne}>Download All as One Image</button>
-      <button onClick={saveToDatabase}>Save to Database</button>
     </div>
   );
 };
