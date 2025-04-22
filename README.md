@@ -48,11 +48,3 @@ The **Edit Page** enables users to customize their captured photos by adding sti
 ![490998701_969263681956429_2813074278678452307_n](https://github.com/user-attachments/assets/cd926dcc-0fc9-48f1-8736-1c16d39ba355)
 
 ---
-
-## Getting Started
-
-To get started with the project locally, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/snap-photobooth.git
