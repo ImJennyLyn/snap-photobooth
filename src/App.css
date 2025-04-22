@@ -152,3 +152,35 @@
   border-radius: 6px;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15);
 }
+.edit-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  margin-left: 5rem;
+  margin-top: 5rem;
+}
+
+.left-panel {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-right: 1px solid #ccc;
+  padding-right: 20px;
+}
+
+.right-panel {
+  flex-grow: 1;
+}
+
+.image-preview-wrapper-edit {
+  background-color: #fef3c7; /* soft yellow background */
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 250px;
+  height: 40rem;
+  margin-left: 6rem;
+}
